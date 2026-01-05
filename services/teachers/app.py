@@ -1,0 +1,1 @@
+print('teachers service running')
