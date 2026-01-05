@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: library
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: library
+  template:
+    metadata:
+      labels:
+        app: library
+    spec:
+      containers:
+      - name: library
+        image: oumaima617/library:v1
+        ports:
+        - containerPort: 5000

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grades
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: grades
+  template:
+    metadata:
+      labels:
+        app: grades
+    spec:
+      containers:
+      - name: grades
+        image: oumaima617/grades:v1
+        ports:
+        - containerPort: 5000
