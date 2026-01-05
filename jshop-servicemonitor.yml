@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: jshop-servicemonitor
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels: {}   # Scrape tous les services
+  namespaceSelector:
+    matchNames:
+      - jshop       # Namespace où sont tes pods
+  endpoints:
+    - port: "80"     # <- mettre le port entre guillemets !
+      interval: 15s
+      path: /
